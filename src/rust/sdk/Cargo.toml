@@ -13,7 +13,7 @@ keywords = ["aptos", "econia", "dex", "clob", "sdk", "blockchain"]
 
 [dependencies]
 aptos-api-types = { git = "https://github.com/aptos-labs/aptos-core", branch = "main" }
-aptos-sdk.workspace = true
+aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", branch = "main" }
 econia-types = { package = "econia-types", path = "../types", features = ["serde"] }
 futures = "0.3.29"
 hex = { version = "0.4.3" }
