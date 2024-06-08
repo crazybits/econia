@@ -1,15 +1,16 @@
 [workspace]
 resolver = "2"
 members = [
-  "aggregator",
-  "dbv2",
-  "e2e",
-  "e2e/e2e-proc-macro",
-  "e2e/metadata",
-  "mqtt-publisher",
-  "types",
-  "sdk",
-  "sdk/example", "aggv2",
+    "aggregator",
+    "dbv2",
+    "e2e",
+    "e2e/e2e-proc-macro",
+    "e2e/metadata",
+    "mqtt-publisher",
+    "types",
+    "sdk",
+    "sdk/example",
+    "aggv2",
 ]
 exclude = ["api", "db", "dependencies"]
 
@@ -26,7 +27,7 @@ rust-version = "1.70"
 aptos-indexer-protos = { path = "dependencies/aptos-indexer-processors/rust/aptos-indexer-protos" }
 server-framework = { path = "dependencies/aptos-indexer-processors/rust/server-framework" }
 aptos-moving-average = { path = "dependencies/aptos-indexer-processors/rust/moving-average" }
-aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", tag = "aptos-node-v1.10.1" }
+aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", tag = "aptos-node-v1.12.0" }
 
 anyhow = { version = "1.0.62", features = ["backtrace"] }
 async-trait = "0.1.53"
