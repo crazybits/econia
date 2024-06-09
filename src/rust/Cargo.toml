@@ -27,7 +27,7 @@ rust-version = "1.70"
 aptos-indexer-protos = { path = "dependencies/aptos-indexer-processors/rust/aptos-indexer-protos" }
 server-framework = { path = "dependencies/aptos-indexer-processors/rust/server-framework" }
 aptos-moving-average = { path = "dependencies/aptos-indexer-processors/rust/moving-average" }
-aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", tag = "aptos-node-v1.12.0" }
+aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", tag = "aptos-node-v1.13.3" }
 
 anyhow = { version = "1.0.62", features = ["backtrace"] }
 async-trait = "0.1.53"
@@ -90,7 +90,6 @@ tracing = "0.1.37"
 tracing-subscriber = { version = "0.3.17", features = ["json", "env-filter"] }
 unescape = "0.1.0"
 warp = { version = "0.3.5", features = ["tls"] }
-
 
 # Work around dependency issues.
 # Check this: https://github.com/aptos-labs/aptos-core/blob/4bddd6ca5b65b12f1890ead29392e76b971ad031/Cargo.toml#L703-L710
