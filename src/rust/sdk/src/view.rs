@@ -344,7 +344,44 @@ impl<'a> EconiaViewClient<'a> {
         )?;
         Ok(value)
     }
-
+    pub async fn get_open_orders_paginated(
+        &self,
+        market_id: u64,
+        n_asks_to_index_max: u64,
+        n_bids_to_index_max: u64,
+        starting_ask_order_id: u128,
+        starting_bid_order_id: u128,
+    ) -> EconiaResult<(OrdersView,u128,u128)> {
+        let managed_coin = format!("{}::market", self.econia_address);
+        let module = MoveModuleId::from_str(&managed_coin)
+            .map_err(|a| EconiaError::InvalidModuleId(a.to_string()))?;
+        let name = IdentifierWrapper::from_str("get_open_orders_paginated").unwrap();
+        let response = self
+            .client
+            .view(
+                &ViewRequest {
+                    function: aptos_api_types::EntryFunctionId { module, name },
+                    type_arguments: vec![],
+                    arguments: vec![
+                        json!(market_id.to_string()),
+                        json!(n_asks_to_index_max.to_string()),
+                        json!(n_bids_to_index_max.to_string()),
+                        json!(starting_ask_order_id.to_string()),
+                        json!(starting_bid_order_id.to_string()),
+                    ],
+                },
+                None,
+            )
+            .await?;
+        let value: (OrdersView,u128,u128) = serde_json::from_value(
+            response
+                .inner()
+                .get(0)
+                .ok_or(EconiaError::InvalidResponse)?
+                .clone(),
+        )?;
+        Ok(value)
+    }
     /// Call `get_posted_order_id_side` view function.
     ///
     /// Arguments:
